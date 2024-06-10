@@ -1,0 +1,6 @@
+---
+apiVersion: cluster.open-cluster-management.io/v1beta2
+kind: ManagedClusterSet
+metadata:
+  name: devconf2024-gitops-clusters
+spec: {}

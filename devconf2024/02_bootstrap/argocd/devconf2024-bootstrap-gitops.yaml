@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devconf2024-bootstrap-gitops
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://api.cluster-d4847.d4847.sandbox121.opentlc.com:6443
+  project: default
+  source:
+    path: devconf2024/02_bootstrap/base
+    repoURL: https://github.com/xbryan1/devconf-2024-acm-apps.git
+  syncPolicy:
+    automated:
+      prune: true
