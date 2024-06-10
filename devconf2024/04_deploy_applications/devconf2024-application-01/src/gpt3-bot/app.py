@@ -1,4 +1,3 @@
-# https://github.com/blessinvarkey/gpt3-flask-bot
 from flask import Flask, render_template, request
 import os
 import openai
@@ -6,8 +5,10 @@ from time import time,sleep
 
 
 app = Flask(__name__)
-app=Flask(__name__,template_folder='templates')
-app = Flask(__name__, static_url_path='/static')
+
+def open_file(filepath):
+    with open(filepath, 'r', encoding='utf-8') as infile:
+        return infile.read()
 
 # Create an openaiapikey.txt file and save your api key.
 openai.api_key = "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"
@@ -29,6 +30,9 @@ def bot(prompt, engine='text-davinci-002', temp=0.9, top_p=1.0, tokens=1000, fre
                 stop=[" User:", " AI:"])
             text = response['choices'][0]['text'].strip()
             print(text)
+            filename = '%s_gpt3.txt' % time()
+            with open('gpt3_logs/%s' % filename, 'w') as outfile:
+               outfile.write('PROMPT:\n\n' + prompt + '\n\n==========\n\nRESPONSE:\n\n' + text)
             return text
         except Exception as oops:
             retry += 1
@@ -49,4 +53,4 @@ def get_bot_response():
     return str(botresponse)
 
 if __name__ == "__main__":
-    app.run(debug = True,host='0.0.0.0',port=8001)
+    app.run(debug = True)
