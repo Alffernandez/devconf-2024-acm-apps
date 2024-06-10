@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argo-app
+  name: devconf2024-application
   namespace: openshift-gitops
 spec:
   generators:
@@ -9,19 +9,19 @@ spec:
         configMapRef: acm-placement
         labelSelector:
           matchLabels:
-            cluster.open-cluster-management.io/placement: devconf2024-argocd-placement
+            cluster.open-cluster-management.io/placement: devconf2024-application-placement
         requeueAfterSeconds: 180
   template:
     metadata:
-      name: argo-app-{{name}}
+      name: devconf2024-application-{{name}}
       labels:
         velero.io/exclude-from-backup: "true"
     spec:
       project: default
       source:
-        repoURL: https://github.com/xbryan1/devconf-2024-acm-apps.git
-        targetRevision: main
-        path: devconf2024/04_deploy_applications/config/tekton/
+        repoURL: https://github.com/jclaret/gitops.git
+        targetRevision: dev
+        path: environments/pre/apps/devconf2024-application/overlays
       destination:
         namespace: openshift-gitops
         server: "{{server}}"
@@ -32,3 +32,10 @@ spec:
         syncOptions:
           - CreateNamespace=true
           - PruneLast=true
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: devconf2024-application-placement
+  namespace: openshift-gitops
+spec: {}

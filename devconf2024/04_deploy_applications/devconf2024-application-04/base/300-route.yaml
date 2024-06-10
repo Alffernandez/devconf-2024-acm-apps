@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: devconf2024-application-04
+  namespace: devconf2024-application-04
+  labels:
+    app: devconf2024-application-04
+    app.kubernetes.io/component: devconf2024-application-04
+    app.kubernetes.io/instance: devconf2024-application-04
+spec:
+  to:
+    kind: Service
+    name: devconf2024-application-04
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  port:
+    targetPort: 8080-tcp
