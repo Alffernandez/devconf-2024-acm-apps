@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: openshift-gitops
-    server: https://api.cluster-d4847.d4847.sandbox121.opentlc.com:6443
+    server: https://api.<your_cluster>:6443
   project: default
   source:
     path: devconf2024/02_bootstrap/base
