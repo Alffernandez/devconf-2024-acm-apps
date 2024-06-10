@@ -9,10 +9,10 @@ metadata:
   namespace: devconf2024-application-01
 spec:
   ports:
-  - name: 5000-tcp
-    port: 5000
+  - name: 8001-tcp
+    port: 8001
     protocol: TCP
-    targetPort: 5000
+    targetPort: 8001
   selector:
     app.kubernetes.io/component: devconf2024-application-01
     app.kubernetes.io/instance: devconf2024-application-01

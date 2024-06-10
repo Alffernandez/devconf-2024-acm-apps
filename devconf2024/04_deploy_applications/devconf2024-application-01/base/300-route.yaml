@@ -6,7 +6,7 @@ metadata:
   namespace: devconf2024-application-01
 spec:
   port:
-    targetPort: 5000-tcp
+    targetPort: 8001-tcp
   to:
     kind: Service
     name: devconf2024-application-01
