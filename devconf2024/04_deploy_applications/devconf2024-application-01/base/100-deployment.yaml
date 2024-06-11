@@ -9,7 +9,7 @@ metadata:
   name: devconf2024-application-01
   namespace: devconf2024-application-01
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app.kubernetes.io/component: devconf2024-application-01
