@@ -27,7 +27,7 @@ spec:
                 apiVersion: v1
                 kind: Namespace
                 metadata:
-                  name: rhte
+                  name: devconf
           pruneObjectBehavior: None
           remediationAction: inform
           severity: low
