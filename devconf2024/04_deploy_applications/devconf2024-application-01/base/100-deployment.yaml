@@ -23,11 +23,11 @@ spec:
         app.kubernetes.io/instance: devconf2024-application-01
     spec:
       containers:
-      - image: quay.io/acm-gitops/chatbot:latest
+      - image: quay.io/acm-gitops/app-01:latest
         imagePullPolicy: Always
         name: devconf2024-application-01
         ports:
-        - containerPort: 8001
+        - containerPort: 8080
           protocol: TCP
         resources: {}
       serviceAccountName: default
