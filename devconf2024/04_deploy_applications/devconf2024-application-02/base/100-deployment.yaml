@@ -27,7 +27,7 @@ spec:
         imagePullPolicy: Always
         name: devconf2024-application-02
         ports:
-        - containerPort: 8001
+        - containerPort: 8080
           protocol: TCP
         resources: {}
       serviceAccountName: default
