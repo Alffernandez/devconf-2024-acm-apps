@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/instance: devconf2024-application-02
     spec:
       containers:
-      - image: quay.io/acm-gitops/chatdraw:latest
+      - image: quay.io/acm-gitops/app-02:latest
         imagePullPolicy: Always
         name: devconf2024-application-02
         ports:
