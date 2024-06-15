@@ -18,4 +18,5 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    deployment: devconf2024-application-03
+    app.kubernetes.io/component: devconf2024-application-03
+    app.kubernetes.io/instance: devconf2024-application-03
